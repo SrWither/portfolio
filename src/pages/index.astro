@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Card from "../components/Card.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+// Nav Links
+const links = [
+  {
+    id: "aboutme",
+    name: "About Me",
+  },
+  {
+    id: "projects",
+    name: "Projects",
+  },
+  {
+    id: "goals",
+    name: "Goals",
+  },
+];
+---
+
+<Layout title="SrWither" client:visible>
+  <Navbar title="SrWither" links={links} />
+  <!--About Me -->
+  <div id="aboutme">
+    <!--Grid with 2 cols -->
+    <div
+      class="grid xl:grid-cols-12 2xl:gap-32 lg:gap-16 gap-16 items-center my-32 xl:mx-64 mx-16"
+    >
+      <div class="col-span-6 order-last xl:order-first space-y-5">
+        <h1 class="font-bold text-6xl">I'm SrWither</h1>
+        <p class="text-accent">
+          I am a developer who likes to learn more about the world of programming and try all kinds of utilities and tools for fun and learning.
+        </p>
+      </div>
+      <div
+        class="flex justify-center items-center text-center col-span-6 order-first xl:order-last"
+      >
+        <img
+          id="avatar"
+          class="rounded-full w-60 h-60 xl:w-80 xl:h-80 object-cover"
+          src="https://avatars.githubusercontent.com/u/59105868?v=4"
+          alt="Avatar"
+        />
+      </div>
+    </div>
+
+    <!--Grid with 3 cols-->
+    <div class="grid xl:grid-cols-3 xl:gap-32 gap-16 xl:mx-32 mx-16">
+      <Card
+        title="Skills"
+        content="Currently I have knowledge in TypeScript, VueJs, Rust, C++. I also know a few things about system administration like having a manually installed dualboot of FreeBSD ZFS and ArchLinux EXT4"
+      />
+      <Card
+        title="Hobbies"
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde inventore cupiditate aspernatur qui aut recusandae ea iure ad laboriosam dolores deleniti, nisi maiores id velit sunt nesciunt, aperiam illum porro."
+      />
+      <Card
+        title="History"
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde inventore cupiditate aspernatur qui aut recusandae ea iure ad laboriosam dolores deleniti, nisi maiores id velit sunt nesciunt, aperiam illum porro."
+      />
+    </div>
+  </div>
+
+  <!--Separator-->
+  <div class="my-32">
+    <div class="gradient-bg rounded-lg"></div>
+  </div>
+
+  <!--My Projects-->
+  <div id="projects" class="xl:mx-32 mx-16 my-32">
+    <div class="flex justify-center">
+      <h1 class="font-bold text-4xl">My Projects</h1>
+    </div>
+    <div
+      class="grid grid-cols-1 xl:grid-cols-3 xl:gap-8 mt-16 gap-16"
+      style="grid-auto-rows: 400px;"
+    >
+      <div class="xl:row-span-2">
+        <ProjectCard
+          title="DiscordBSD"
+          content="DiscordBSD is an attempt at a native discord client for FreeBSD which brings features such as rich presence, custom titlebar, splashscreen, etc."
+          imageUrl="https://images4.alphacoders.com/121/1216476.jpg"
+          link="https://github.com/SrWither/DiscordBSD"
+        />
+      </div>
+      <ProjectCard
+        title="Usuim"
+        content="Usuim is a neovim configured to look like Visual Studio Code"
+        imageUrl="https://user-images.githubusercontent.com/59105868/183558791-3dd9daf8-35cb-4870-b45b-b4f6df1ad096.png"
+        link="https://github.com/Usuim/Usuim"
+      />
+      <ProjectCard
+        title="SocialWither"
+        content="SocialWither is a social network that I made to learn how to use microservices"
+        imageUrl="https://media.discordapp.net/attachments/988939738079703111/1194057082333310986/image.png?ex=65d3e150&is=65c16c50&hm=6e5b943f3fd332a404ca67d28c0d6214502184e3e2b604f7679c118a39fb9f5c&=&format=webp&quality=lossless"
+        link="https://github.com/SrWither/SocialWither"
+      />
+      <ProjectCard
+        title="MeteorNvim"
+        content="MeteorNvim is a neovim configured to make application development easy, it is configurable and you can modify it as much as you want"
+        imageUrl="https://meteornvim.github.io/MeteorDocs/images/preview.png"
+        link="https://github.com/MeteorNvim/MeteorNvim"
+      />
+      <ProjectCard
+        title="GuiFetch"
+        content="GuiFetch is a gui system information tool written in C++, Qt6 and QML similar to neofetch"
+        imageUrl="https://user-images.githubusercontent.com/59105868/214961101-412558b1-0afe-4fb6-9d0b-87b24d387419.png"
+        link="https://github.com/SrWither/guifetch"
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @keyframes glow {
+    0% {
+      box-shadow:
+        0 0 10px #183d3d,
+        0 0 20px #5c8374,
+        0 0 30px #6ca38e,
+        0 0 40px #93b1a6;
+    }
+    100% {
+      box-shadow:
+        0 0 20px #183d3d,
+        0 0 40px #5c8374,
+        0 0 60px #6ca38e,
+        0 0 80px #93b1a6;
+    }
+  }
+
+  #avatar {
+    animation: glow 4s infinite alternate;
+  }
+
+  .gradient-bg {
+    height: 20rem;
+    background: linear-gradient(to right, #183d3d, #5c8374, #6ca38e, #93b1a6);
+    background-size: 400% 100%;
+    animation:
+      gradientAnimation 5s ease infinite alternate,
+      glow 4s infinite alternate;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+</style>

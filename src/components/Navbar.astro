@@ -1,0 +1,24 @@
+---
+type link = {
+  id: string
+  name: string
+}
+
+interface Props {
+    title: string
+    links: link[]
+}
+
+const {title, links} = Astro.props
+---
+
+<header class="fixed w-full top-0 z-50 shadow backdrop-filter backdrop-blur-md">
+    <nav class="flex py-5 xl:px-64 px-6 items-center justify-between">
+      <h1 class="xl:text-3xl text-2xl font-bold">{title}</h1>
+      <div></div>
+      <ul class="flex xl:space-x-10 space-x-3">
+        {links.map((link) => <li class="font-bold"><a href={`#${link.id}`}>{link.name}</a></li>)}
+      </ul>
+    </nav>
+  </header>
+  

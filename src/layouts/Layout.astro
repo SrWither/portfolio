@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-white">
+    <slot />
+  </body>
+  <script>
+    import ScrollReveal from "scrollreveal";
+    ScrollReveal().reveal(".sr", {
+      delay: 200,
+      duration: 800,
+      easing: "cubic-bezier(0.5, 0, 0, 1)",
+      reset: true,
+    });
+  </script>
+</html>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+</style>
+
+<style is:global>
+  .sr {
+    visibility: hidden;
+  }
+</style>
