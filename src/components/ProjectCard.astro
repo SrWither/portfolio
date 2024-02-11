@@ -3,21 +3,44 @@ interface Props {
   title: string;
   content: string;
   imageUrl: string;
-  link: string;
+  link?: string;
 }
 
 const { title, content, imageUrl, link } = Astro.props;
 ---
 
-<a href={link} target="_blank" rel="noopener noreferrer">
-  <div class="sr relative h-full shadow-xl shadow-primary hover:shadow-2xl transition-all border-secondary hover:border-primary border-4 rounded-lg">
-    <img src={imageUrl} alt={title} class="w-full h-full object-cover rounded-lg" />
-    <div class="absolute inset-0 flex justify-center items-end">
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-      <div class="text-white text-center p-5 relative z-10">
-        <h1 class="font-bold text-3xl">{title}</h1>
-        <p class="mt-2">{content}</p>
+{
+  link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      <div class="sr relative h-full shadow-xl shadow-primary hover:shadow-2xl transition-all border-secondary hover:border-primary border-4 rounded-lg">
+        <img
+          src={imageUrl}
+          alt={title}
+          class="w-full h-full object-cover rounded-lg"
+        />
+        <div class="absolute inset-0 flex justify-center items-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div class="text-white text-center p-5 relative z-10">
+            <h1 class="font-bold text-3xl">{title}</h1>
+            <p class="mt-2">{content}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  ) : (
+    <div class="sr relative h-full shadow-xl shadow-primary hover:shadow-2xl transition-all border-secondary hover:border-primary border-4 rounded-lg">
+      <img
+        src={imageUrl}
+        alt={title}
+        class="w-full h-full object-cover rounded-lg"
+      />
+      <div class="absolute inset-0 flex justify-center items-end">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div class="text-white text-center p-5 relative z-10">
+          <h1 class="font-bold text-3xl">{title}</h1>
+          <p class="mt-2">{content}</p>
+        </div>
       </div>
     </div>
-  </div>
-</a>
+  )
+}
