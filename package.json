@@ -12,8 +12,10 @@
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/mdi": "^1.1.64",
     "@types/scrollreveal": "^0.0.11",
     "astro": "^4.3.2",
+    "astro-icon": "^1.1.0",
     "scrollreveal": "^4.0.9",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"

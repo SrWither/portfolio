@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<!-- Footer -->
+<footer class="bg-secondary py-8 px-4 glow">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <p class="text-accent font-bold">Follow me in</p>
+      <div class="flex space-x-4">
+        <a href="https://github.com/SrWither" class="text-accent hover:text-primary transition-colors duration-300">
+            <Icon size={35} name="mdi:github" />
+        </a>
+        <a href="https://reddit.com/user/SrWither" class="text-accent hover:text-primary transition-colors duration-300">
+            <Icon size={35} name="mdi:reddit" />
+        </a>
+        <a href="https://youtube.com/@SrWitherless" class="text-accent hover:text-primary transition-colors duration-300">
+            <Icon size={35} name="mdi:youtube" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .glow{
+        animation: glow 4s infinite alternate;
+    }
+  </style>

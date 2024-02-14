@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro"
 import Card from "../components/Card.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
@@ -157,10 +158,13 @@ const links = [
       />
     </div>
   </div>
+
+  <!--Footer-->
+  <Footer />
 </Layout>
 
-<style>
-  @keyframes glow {
+<style is:global>
+    @keyframes glow {
     0% {
       box-shadow:
         0 0 10px #183d3d,
@@ -176,7 +180,18 @@ const links = [
         0 0 80px #93b1a6;
     }
   }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+</style>
 
+<style>
   #avatar {
     animation: glow 4s infinite alternate;
   }
@@ -188,14 +203,5 @@ const links = [
     animation:
       gradientAnimation 5s ease infinite alternate,
       glow 4s infinite alternate;
-  }
-
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
   }
 </style>
