@@ -1,20 +1,22 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   title: string;
   content: string;
-  imageUrl: string;
+  image: ImageMetadata;
   link?: string;
 }
 
-const { title, content, imageUrl, link } = Astro.props;
+const { title, content, image, link } = Astro.props;
 ---
 
 {
   link ? (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <div class="sr relative h-full shadow-xl shadow-primary hover:shadow-2xl transition-all border-secondary hover:border-primary border-4 rounded-lg">
-        <img
-          src={imageUrl}
+        <Image
+          src={image}
           alt={title}
           class="w-full h-full object-cover rounded-lg"
         />
@@ -29,8 +31,8 @@ const { title, content, imageUrl, link } = Astro.props;
     </a>
   ) : (
     <div class="sr relative h-full shadow-xl shadow-primary hover:shadow-2xl transition-all border-secondary hover:border-primary border-4 rounded-lg">
-      <img
-        src={imageUrl}
+      <Image
+        src={image}
         alt={title}
         class="w-full h-full object-cover rounded-lg"
       />
